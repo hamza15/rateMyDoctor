@@ -13,4 +13,5 @@ class Review < ApplicationRecord
     def doctor_location
         self.doctor.location
     end
+    
 end
