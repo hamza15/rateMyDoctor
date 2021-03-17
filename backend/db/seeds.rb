@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)rating
 
+###########################STEPS FOR FINAL SEED DATA#########
+# Create Doctors first with all info (maybe picture)
+# Then create Reviews with Doctor linked to reviews
+# first = Doctor.create(name: "Kim John", speciality: "", location: "", picture="")
+# Review.create(Review.create(rating: 5, feedback: "Amazing experience. 10/10 would recommend.", doctor: first))
+
+
 # Doctor.create(name: "Kim John", speciality: "", location: "")
 # Doctor.create(name: "Laine Smith", speciality: "", location: "")
 # Doctor.create(name: "Alex Smith", speciality: "", location: "")

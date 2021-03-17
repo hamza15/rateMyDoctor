@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate my Doctor</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <div id="toy-header">
+        <img
+          src="logo.png"
+          alt="toy-header"
+        />
+      </div>
+    
+    <div id="root">
+
+    </div>
+
+    <div class="container">
+        <form class="add-toy-form">
+          <h3>Add a new Doctor!</h3>
+  
+          <input
+            type="text"
+            name="name"
+            value=""
+            placeholder="Enter a doctor's name:"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            name="image"
+            value=""
+            placeholder="Enter a doctor's image URL:"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            name="location"
+            value=""
+            placeholder="Enter a doctor's location:"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            name="speciality"
+            value=""
+            placeholder="Enter a doctor's speciality:"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="submit"
+            name="submit"
+            value="Create New Doctor"
+            class="submit"
+          />
+        </form>
+      </div>
+      <p style="text-align:center">
+        <button id="new-doctor-btn">Add a review</button>
+      </p>
+
+      <label for="speciality">Speciality</label>
+      <select name="" id="speciality"></select>
+      <label for="location">Location</label>
+      <select name="" id="location"></select>
+
+    <button id="createReview">Create Review</button>
+
+      <div id="doctor-collection"></div>
+    <script src="src/review.js"></script>
+    <script src="src/appContainer.js"></script>
+    <script src="src/index.js"></script>
+</body>
+</html>
