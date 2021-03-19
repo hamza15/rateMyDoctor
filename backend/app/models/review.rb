@@ -14,4 +14,7 @@ class Review < ApplicationRecord
         self.doctor.location
     end
     
+    def doctor_image_url
+        self.doctor.image_url
+    end
 end

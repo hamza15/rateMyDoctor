@@ -6,7 +6,7 @@ body {
   #toy-header {
     display: flex;
     justify-content: center;
-    background: #515DA2;
+    background: #FF6347;
     opacity: .8;
     height: 7rem;
     padding: 1rem;
@@ -57,11 +57,14 @@ body {
   }
   
   .container {
-    padding: 1rem;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 15rem;
     width: stretch;
     height: auto;
     display: none;
-    background: #515DA2;
+    background: #FF6347;
     opacity: .8;
   }
   
@@ -71,7 +74,7 @@ body {
   
   .submit {
     position: relative;
-    background-color: #e04b52;
+    background-color: #4040a1;
     border-radius: 5px;
     height: 2rem;
     width: max-content;
