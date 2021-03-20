@@ -25,7 +25,7 @@ const getReviews = () => {
         newH4.innerText = review.doctor_speciality;
     
         let newImg = document.createElement("img");
-        newImg.className = "toy-avatar";
+        newImg.className = "doctor-avatar";
         newImg.src = review.doctor_image_url;
     
         let newP = document.createElement("p");
@@ -75,24 +75,24 @@ const getReviews = () => {
 
 
 function renderDoctorForm() {
-    let addToy = false;
+    let addDoctor = false;
 
     document.addEventListener("DOMContentLoaded", () => {
         const addBtn = document.querySelector("#new-doctor-btn");
-        const toyFormContainer = document.querySelector(".container");
+        const DoctorFormContainer = document.querySelector(".container");
         addBtn.addEventListener("click", () => {
           // hide & seek with the form
-          addToy = !addToy;
-          if (addToy) {
-            toyFormContainer.style.display = "block";
+          addDoctor = !addDoctor;
+          if (addDoctor) {
+            DoctorFormContainer.style.display = "block";
       
-            // add listener to 'Create New Toy' button
-            toyFormContainer.addEventListener('submit', (event) => {
+            // add listener to 'Create New Doc' button
+            DoctorFormContainer.addEventListener('submit', (event) => {
               event.preventDefault()
-              submitToy(event.target)
+              submitDoctor(event.target)
             })
           } else {
-            toyFormContainer.style.display = "none";
+            DoctorFormContainer.style.display = "none";
           }
         });
       });   
