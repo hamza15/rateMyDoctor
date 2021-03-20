@@ -1,12 +1,3 @@
-// const app = new AppContainer
-// app.getReviews()
-// app.renderDoctors()
-// app.eventListeners()
-// app.renderReviews()
-
-
-
-
 const rootEl = document.getElementById("root")
 const doctorCollection = document.getElementById('doctor-collection');
 
@@ -42,24 +33,46 @@ const getReviews = () => {
         
         divCard.append(newH2, newImg, newH3, newH4, newP);
         doctorCollection.append(divCard);
+    };  
 
-
-        // reviews.forEach((review) => {
-        //     rootEl.innerHTML += `
-        //     <div>
-        //         <h2>${review.doctor_name} - ${review.doctor_speciality} - ${review.doctor_location}</h2>
-        //         <p>Rating: ${review.rating}</p>
-        //         <p>Review: ${review.feedback}</p>
-        //         <br>
-        //     </di>`
-        // })
-    };    
 }
 
-function init() {
-    renderDoctorForm()
-    getReviews()
-}
+// const getFeedback = () => {
+//     fetch('http://localhost:3000/reviews')
+//     .then((res) => res.json())
+//     // .then(data => renderReviews(data));
+//     .then(json => json.forEach(review => {
+//         hovering(review)
+//       }))
+
+//     const hovering = function (review) {
+
+//         let divCard = document.getElementsByClassName("card")
+        
+//         divCard.addEventListener("mouseover", func, false)
+
+//         divCard.addEventListener("mouseout", func1, false);
+
+//         function func()
+//         {  // not needed since item is already global, 
+//         // I am assuming this is here just because it's sample code?
+//         // var item = document.getElementById("button"); 
+//         let newP2 = document.createElement("p");
+//         newP2.className = "feedback";
+//         newP2.innerText = `Feedback: ${review.feedback}`;
+//         divCard.append(newP2);
+//         }
+
+//         function func1()
+//         {  
+//             const pElement = document.getElementsByClassName("feedback")
+//             pElement.remove();
+//         }
+//     }
+
+// }
+
+
 
 function renderDoctorForm() {
     let addToy = false;
@@ -85,28 +98,11 @@ function renderDoctorForm() {
       });   
 }
 
-// function renderReviews(review) {
-//     let divCard = document.createElement("div");
-//     divCard.className = "card";
-    
-//     let newH2 = document.createElement("h2");
-//     newH2.innerText = review.doctor_name;
 
-//     let newH3 = document.createElement("h2");
-//     newH2.innerText = review.doctor_location;
-
-//     let newH4 = document.createElement("h2");
-//     newH2.innerText = review.doctor_speciality;
-  
-//     let newImg = document.createElement("img");
-//     newImg.className = "toy-avatar";
-//     newImg.src = toy["image"];
-  
-//     let newP = document.createElement("p");
-//     newP.innerText = `Rating: ${review.rating} / 5`;
-    
-//     divCard.append(newH2, newImg, newP, newH3, newH4);
-//     doctorCollection.append(divCard);
-//   }
+function init() {
+    renderDoctorForm()
+    getReviews()
+    //getFeedback()
+}
 
 init();
