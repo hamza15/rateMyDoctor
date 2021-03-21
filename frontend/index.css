@@ -68,7 +68,7 @@ body {
     opacity: .8;
   }
   
-  .add-doctor-form {
+  #add-doctor-form {
     width: 80%
   }
   

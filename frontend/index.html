@@ -31,11 +31,12 @@
       <div id="doctor-collection"></div>
 
       <div class="container">
-        <form class="add-doctor-form">
+        <form id="add-doctor-form">
           <h3>Add a new Doctor!</h3>
   
           <input
             type="text"
+            id="name"
             name="name"
             value=""
             placeholder="Enter a doctor's name"
@@ -44,6 +45,7 @@
           <br />
           <input
             type="text"
+            id="image"
             name="image"
             value=""
             placeholder="Enter a doctor's image URL"
@@ -52,6 +54,7 @@
           <br />
           <input
             type="text"
+            id="location"
             name="location"
             value=""
             placeholder="Enter a location (Ex: NY)"
@@ -60,9 +63,28 @@
           <br />
           <input
             type="text"
+            id="speciality"
             name="speciality"
             value=""
             placeholder="Enter speciality (Ex: Pediatrics)"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            id="rating"
+            name="rating"
+            value=""
+            placeholder="Enter rating out of 5"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            id="feedback"
+            name="feedback"
+            value=""
+            placeholder="Feedback"
             class="input-text"
           />
           <br />
@@ -79,7 +101,6 @@
       </p>
 
     <script src="src/review.js"></script>
-    <!-- <script src="src/appContainer.js"></script> -->
     <script src="src/index.js"></script>
 </body>
 </html>
