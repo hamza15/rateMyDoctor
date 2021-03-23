@@ -23,3 +23,6 @@ Review.create(rating: 2, feedback: "Don't bother.", doctor: six)
 seven = Doctor.create(name: "Smith Row", speciality: "Oncology", location: "CA", image_url: "https://ratemydoctor-images-bucket.s3.amazonaws.com/doc_6.png")
 Review.create(rating: 4, feedback: "Dr Smith is amazing. Always my go to!", doctor: seven)
 
+eight = Doctor.create(name: "Kim Raven", speciality: "Radiology", location: "MD", image_url: "https://ratemydoctor-images-bucket.s3.amazonaws.com/fem_2.png")
+Review.create(rating: 5, feedback: "Best Radiologist in Maryland!", doctor: eight)
+
