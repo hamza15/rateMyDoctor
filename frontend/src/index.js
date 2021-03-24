@@ -29,10 +29,12 @@ function showDoctor(e) {
         .then((doctor) => {
         const showDoctor = new Doctor(doctor);
         showDoctor.renderDoctor();
-
-        // itemDetailEl.innerHTML = newItem.renderShowItem();
     });
+    //     const backButton = document.getElementById('bk-button');
+    //     backButton.addEventListener("click", homeView);
+    
 }
+
 
 function renderDoctorForm() {
     let addDoctor = false;
@@ -91,3 +93,8 @@ function submitDoctor(data) {
     //renderReviews(review))
     DoctorFormContainer.style.display = "none";
 }
+
+// function homeView() {
+//     doctorShowPage.style.display = "none";
+//     doctorCollection.style.display = "block";
+// }
