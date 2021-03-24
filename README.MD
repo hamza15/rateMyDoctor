@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## About
+rateMyDoctor is a single page application that allows users to look up doctors and check their reviews. It utilizes a Ruby on Rails backend serving as an API to a Javascript, HTML & CSS frontend. 
 
-* Ruby version
 
-* System dependencies
+## Installation Instructions
 
-* Configuration
+Fork and clone this repository locally. This repository is logically seperated into two folders "backend" and "frontend".
 
-* Database creation
+### Backend Setup
 
-* Database initialization
+- <b> The below steps will setup all Gems required for API setup: </b>
 
-* How to run the test suite
+``` cd backend 
+    bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- <b> The following steps will create our Postgres database, migrate it (create a schema) and inject seed data into our API: </b>
 
-* Deployment instructions
+``` 
+    rails db:create
+    rails db:migrate 
+    rails db:seed
+```
 
-* ...
+- <b> Starting the server: </b>
+
+```
+    rails s
+```
+### Frontend Setup
+
+- <b> You can simply start the server using the following: </b>
+
+```
+    python -m SimpleHTTPServer
+```
