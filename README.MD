@@ -1,6 +1,6 @@
 # README
 
-![](img/giphy.gif)
+![](./img/giphy.gif)
 
 
 ## About
