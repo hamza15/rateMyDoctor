@@ -1,5 +1,7 @@
 # README
 
+![](img/giphy.gif)
+
 
 ## About
 rateMyDoctor is a single page application that allows users to look up doctors and check their reviews. It utilizes a Ruby on Rails backend serving as an API to a Javascript, HTML & CSS frontend. 

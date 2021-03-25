@@ -26,3 +26,5 @@ Review.create(rating: 4, feedback: "Dr Smith is amazing. Always my go to!", doct
 eight = Doctor.create(name: "Kim Raven", speciality: "Radiology", location: "MD", image_url: "https://ratemydoctor-images-bucket.s3.amazonaws.com/fem_2.png")
 Review.create(rating: 5, feedback: "Best Radiologist in Maryland!", doctor: eight)
 
+# nine = Doctor.create(name: "Amanda Freeman", speciality: "Radiology", location: "AZ", image_url: "https://ratemydoctor-images-bucket.s3.amazonaws.com/fem_3.png")
+# Review.create(rating: 5, feedback: "Brilliant Doctor! Amazing experience.", doctor: nine)
