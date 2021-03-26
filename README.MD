@@ -1,6 +1,6 @@
 # README
 
-![](img/giphy.gif)
+![gify](https://github.com/hamza15/rateMyDoctor/blob/master/img/gify.gif)
 
 
 ## About
