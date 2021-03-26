@@ -30,11 +30,7 @@ class Review {
         let newP = document.createElement("p");
         newP.innerText = `Rating: ${this.rating}/5`;
         
-        let newB = document.createElement("button");
-        newB.setAttribute('data-id', this.id);
-        newB.className = "show-btn"
-        newB.id = "showButton";
-        newB.innerText = ` Show `;     
+             
 
         divCard.append(newH2, newImg, newH3, newH4, newP, newB);
 

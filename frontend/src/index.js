@@ -1,38 +1,41 @@
 const rootEl = document.getElementById("root")
 const doctorCollection = document.getElementById('doctor-collection');
-const doctorShowPage = document.getElementById('display-doc');
+const doctorShowPage = document.getElementById('display-docs'); //change this name everywhere / this is the actual doctor collection
+const doctorShow = document.getElementById('doctor-show'); //the actual show page
 const doctorForm = document.getElementById('add-doctor-form');
 
 function init() {
+    getDoctor()
     renderDoctorForm()
 }
 
-fetch('http://localhost:3000/reviews')
-.then((res) => res.json())
-.then((data) => {
-    data.forEach((reviewObject) => {
-        const newReview = new Review(reviewObject);
-        newReview.renderIndexReview();
+function getDoctor() {
+    fetch('http://localhost:3000/doctors')
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((reviewObject) => {
+            // const newReview = new Review(reviewObject);
+            // newReview.renderIndexReview();
+            console.log(reviewObject)
+            const newDoctor = new Doctor(reviewObject)
+            newDoctor.renderDoctor();
+        });
+        document
+            .querySelectorAll(".show-btn")
+            .forEach((btn) => btn.addEventListener("click", showDoctor));
     });
-    document
-        .querySelectorAll(".show-btn")
-        .forEach((btn) => btn.addEventListener("click", showDoctor));
-    // renderReviews(data)
-});
+}
+
 
 function showDoctor(e) {
-    // console.log(e.target)
     const { id } = e.target.dataset;
     console.log(`Doctor ${id} was clicked`);
     fetch(`http://localhost:3000/doctors/${id}`)
         .then((res) => res.json())
         .then((doctor) => {
         const showDoctor = new Doctor(doctor);
-        showDoctor.renderDoctor();
-    });
-    //     const backButton = document.getElementById('bk-button');
-    //     backButton.addEventListener("click", homeView);
-    
+        showDoctor.renderDoctorDetail();
+    });    
 }
 
 
@@ -90,11 +93,5 @@ function submitDoctor(data) {
         const newReview = new Review(review);
         newReview.renderIndexReview();
     });
-    //renderReviews(review))
     DoctorFormContainer.style.display = "none";
 }
-
-// function homeView() {
-//     doctorShowPage.style.display = "none";
-//     doctorCollection.style.display = "block";
-// }
