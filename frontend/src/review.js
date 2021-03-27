@@ -32,7 +32,7 @@ class Review {
         
              
 
-        divCard.append(newH2, newImg, newH3, newH4, newP, newB);
+        divCard.append(newH2, newImg, newH3, newH4, newP);
 
         doctorCollection.append(divCard);
     }

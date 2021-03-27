@@ -14,9 +14,6 @@ function getDoctor() {
     .then((res) => res.json())
     .then((data) => {
         data.forEach((reviewObject) => {
-            // const newReview = new Review(reviewObject);
-            // newReview.renderIndexReview();
-            console.log(reviewObject)
             const newDoctor = new Doctor(reviewObject)
             newDoctor.renderDoctor();
         });
@@ -80,7 +77,7 @@ init();
 function submitDoctor(data) {
     const DoctorFormContainer = document.querySelector(".container");
     console.log(data)
-    fetch("http://localhost:3000/reviews", {
+    fetch("http://localhost:3000/doctors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", 
@@ -89,9 +86,9 @@ function submitDoctor(data) {
       body: JSON.stringify(data)
     })
     .then((res) => res.json())
-    .then((review) => {
-        const newReview = new Review(review);
-        newReview.renderIndexReview();
+    .then((doctor) => {
+        const newDoctor = new Doctor(doctor);
+        newDoctor.renderDoctor();
     });
     DoctorFormContainer.style.display = "none";
 }
