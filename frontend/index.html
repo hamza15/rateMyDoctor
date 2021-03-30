@@ -32,9 +32,48 @@
       <div id="doctor-collection"></div>
       <div id="display-docs"></div>
       <div id="doctor-show"></div>
+      <div class="review-container">
+        <form id="add-review-form">
+          <h3>We'd love to hear your feedback:</h3>
+          <input
+            type="text"
+            id="reviewName"
+            name="name"
+            value=""
+            placeholder="Enter a doctor's name"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            id="reviewRating"
+            name="rating"
+            value=""
+            placeholder="Enter rating out of 5"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="text"
+            id="reviewFeedback"
+            name="feedback"
+            value=""
+            placeholder="Feedback"
+            class="input-text"
+          />
+          <br />
+          <input
+            type="submit"
+            name="submit"
+            value="Create Review"
+            class="submit"
+          />
+        </form>
+      </div>
+
       <div class="container">
         <form id="add-doctor-form">
-          <h3>Add a new Doctor!</h3>
+          <h3>Add a new Doctor OR Create Review for existing!</h3>
   
           <input
             type="text"
@@ -96,6 +135,7 @@
             value="Create New Doctor"
             class="submit"
           />
+          <b><p>Note: You can add a review to an existing doctor by entering name, rating & feedback!</p></b>
         </form>
       </div>
       <p style="text-align:center">

@@ -30,9 +30,32 @@ function showDoctor(e) {
     fetch(`http://localhost:3000/doctors/${id}`)
         .then((res) => res.json())
         .then((doctor) => {
-        const showDoctor = new Doctor(doctor);
-        showDoctor.renderDoctorDetail();
-    });    
+          const showDoctor = new Doctor(doctor);
+          showDoctor.renderDoctorDetail();
+          // debugger;
+          document
+            .querySelector(".review-btn")
+            .addEventListener("click", runLater);
+        });
+}
+
+function runLater() {
+  console.log("REVIEW CREATED!")
+
+  const ReviewFormContainer = document.querySelector(".review-container");
+  ReviewFormContainer.style.display = "block"
+  ReviewFormContainer.addEventListener('submit', (event) => {
+      event.preventDefault()
+      const name = document.getElementById('reviewName').value
+      const rating = document.getElementById('reviewRating').value
+      const feedback = document.getElementById('reviewFeedback').value
+      const data = {
+          name,
+          rating,
+          feedback,
+      };
+      submitReview(data)
+    })
 }
 
 
@@ -71,24 +94,64 @@ function renderDoctorForm() {
       });   
 }
 
+function submitDoctor(data) {
+  const DoctorFormContainer = document.querySelector(".container");
+  console.log(data)
+  fetch("http://localhost:3000/doctors", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", 
+      "Accept": "application/json"
+    }, 
+    body: JSON.stringify(data)
+  })
+  .then((res) => res.json())
+  .then((doctor) => {
+      console.log(doctor)
+      const newDoctor = new Doctor(doctor);
+      newDoctor.renderDoctor();
+  });
+  DoctorFormContainer.style.display = "none";
+}
+
+function submitReview(data) {
+  const ReviewFormContainer = document.querySelector(".review-container");
+  const doctorShow = document.querySelector('#doctor-show');
+  doctorShow.style.display = "none";
+  ///////
+  fetch("http://localhost:3000/doctors", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", 
+      "Accept": "application/json"
+    }, 
+    body: JSON.stringify(data)
+  })
+  .then((res) => res.json())
+  .then((doctor) => {
+    let data = {
+      target: {
+        dataset: {
+          id: doctor.id
+        }
+      }
+    }
+    
+    const newReview = new Doctor(doctor);
+    newReview.renderDoctorDetail();
+    
+    doctorShow.style.display = "block";
+
+    let infoCards = document.getElementsByClassName('info-card');
+    let reviewCards = document.getElementsByClassName('card2');
+    let infoCard = infoCards[0];
+    let reviewCard = reviewCards[0];
+
+    infoCard.style.display = "none";
+    reviewCard.style.display = "none";
+  });
+  ReviewFormContainer.style.display = "none";
+}
+
 init();
 
-
-function submitDoctor(data) {
-    const DoctorFormContainer = document.querySelector(".container");
-    console.log(data)
-    fetch("http://localhost:3000/doctors", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", 
-        "Accept": "application/json"
-      }, 
-      body: JSON.stringify(data)
-    })
-    .then((res) => res.json())
-    .then((doctor) => {
-        const newDoctor = new Doctor(doctor);
-        newDoctor.renderDoctor();
-    });
-    DoctorFormContainer.style.display = "none";
-}

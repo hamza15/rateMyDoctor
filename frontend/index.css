@@ -32,6 +32,17 @@ body {
     box-shadow: 3px 4px #e04b52
   }
 
+  .info-card {
+    text-align: center;
+    border: grey solid 1px;
+    padding: 1rem;
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #e04b52
+  }
+
   .card2 {
     text-align: center;
     border: grey solid 1px;
@@ -59,6 +70,7 @@ body {
     color: whitesmoke;
     font-size: 18px;
     justify-self: center;
+    display:inline
   }
   
   button:hover {
@@ -69,14 +81,26 @@ body {
   
   .container {
     text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 15rem;
+    padding: 1rem;
     width: stretch;
     height: auto;
     display: none;
     background: #FF6347;
     opacity: .8;
+  }
+
+  .review-container {
+    text-align: center;
+    padding: 1rem;
+    width: stretch;
+    height: auto;
+    display: none;
+    background: #FF6347;
+    opacity: .8;
+  }
+
+  #add-review-form {
+    width: 80%
   }
   
   #add-doctor-form {

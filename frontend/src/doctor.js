@@ -9,11 +9,10 @@ class Doctor {
     }
 
     renderDoctor() {
-
         let divCard = document.createElement("div");
         divCard.id = "cardId"
         divCard.className = "card";
-        
+
         let newH2 = document.createElement("h1");
         newH2.innerText = this.name;
 
@@ -36,17 +35,19 @@ class Doctor {
         divCard.append(newH2, newImg, newH3, newH4, newB);
 
         doctorShowPage.append(divCard);
-
     }
 
-    
+    renderDoctorDetail() {
+        document.querySelector("#display-docs").style.display = "none";
+        this.renderInfo();
+    }
 
     renderInfo() {
-        // console.log(this.doctor_reviews)
+        
         let divCard = document.createElement("div");
         divCard.id = "cardId"
-        divCard.className = "card";
-        
+        divCard.className = "info-card";
+
         let newH2 = document.createElement("h1");
         newH2.innerText = this.name;
 
@@ -65,15 +66,13 @@ class Doctor {
         doctorShow.append(divCard);
 
         let divCard2 = document.createElement("div");
+        divCard2.id = "cardId2"
         divCard2.className = "card2";
-        console.log(this.doctor_reviews)
+        // console.log(this.doctor_reviews)
 
         this.doctor_reviews.forEach((review) => {
 
-            console.log(review.feedback)
-
-            // let divCard = document.createElement("div");
-            // divCard.className = "card2";
+            // console.log(review.feedback)
 
             let newP1 = document.createElement("p");
             newP1.className = "para";
@@ -87,28 +86,14 @@ class Doctor {
             doctorShowPage.append(divCard2);
         })
 
+        let reviewB = document.createElement("button");
+        reviewB.className = "review-btn"
+        reviewB.id = "reviewButton";
+        reviewB.innerText = ` Create Review `;
+
+        divCard2.append(reviewB);
+
         doctorShow.append(divCard2);
-        // let exit = document.getElementById("bk-button")
-        // exit.addEventListener('click', goBack)
-
+        
     }
-
-    renderDoctorDetail() {
-        // debugger;
-        document.querySelector("#display-docs").style.display = "none";
-        this.renderInfo();
-    }
-
-    
 }
-
-// function goBack() {
-//     // const doctorCollection = document.getElementById('doctor-collection');
-//     // const doctorShowPage = document.getElementById('display-doc');
-
-//     // doctorShowPage.style.display = "none";
-//     console.log('at goBack inside RenderInfo')
-//     // getDoctor()
-//     // doctorCollection.style.display = "block";
-//     // location.reload();
-// }

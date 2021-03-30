@@ -11,9 +11,17 @@ class DoctorsController < ApplicationController
     end
 
     def create
-        doctor = Doctor.create(name: params[:name], image_url: params[:image], location: params[:location], speciality: params[:speciality])
-        review = Review.create(rating: params[:rating].to_i, feedback: params[:feedback], doctor: doctor)
-        render json: doctor
+        # binding.pry
+        doc = Doctor.find_by(location: params[:location])
+        if doc
+            doctor = Doctor.create(name: params[:name], image_url: params[:image], location: params[:location], speciality: params[:speciality])
+            review = Review.create(rating: params[:rating].to_i, feedback: params[:feedback], doctor: doctor)
+            render json: doctor
+        else
+            doctor = Doctor.find_by(name: params[:name])
+            review = Review.create(rating: params[:rating].to_i, feedback: params[:feedback], doctor: doctor)
+            render json: doctor
+        end
     end
 
 
