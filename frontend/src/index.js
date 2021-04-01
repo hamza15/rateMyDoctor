@@ -5,11 +5,11 @@ const doctorShow = document.getElementById('doctor-show'); //the actual show pag
 const doctorForm = document.getElementById('add-doctor-form');
 
 function init() {
-    getDoctor()
+    getDoctors()
     renderDoctorForm()
 }
 
-function getDoctor() {
+function getDoctors() {
     fetch('http://localhost:3000/doctors')
     .then((res) => res.json())
     .then((data) => {
@@ -20,6 +20,9 @@ function getDoctor() {
         document
             .querySelectorAll(".show-btn")
             .forEach((btn) => btn.addEventListener("click", showDoctor));
+            document
+            .querySelectorAll(".del-btn")
+            .forEach((btn) => btn.addEventListener("click", delDoctor));
     });
 }
 
@@ -35,27 +38,8 @@ function showDoctor(e) {
           // debugger;
           document
             .querySelector(".review-btn")
-            .addEventListener("click", runLater);
+            .addEventListener("click", createReview);
         });
-}
-
-function runLater() {
-  console.log("REVIEW CREATED!")
-
-  const ReviewFormContainer = document.querySelector(".review-container");
-  ReviewFormContainer.style.display = "block"
-  ReviewFormContainer.addEventListener('submit', (event) => {
-      event.preventDefault()
-      const name = document.getElementById('reviewName').value
-      const rating = document.getElementById('reviewRating').value
-      const feedback = document.getElementById('reviewFeedback').value
-      const data = {
-          name,
-          rating,
-          feedback,
-      };
-      submitReview(data)
-    })
 }
 
 
@@ -114,9 +98,31 @@ function submitDoctor(data) {
   DoctorFormContainer.style.display = "none";
 }
 
+function createReview() {
+  console.log("REVIEW CREATED!")
+
+  const ReviewFormContainer = document.querySelector(".review-container");
+  ReviewFormContainer.style.display = "block"
+  ReviewFormContainer.addEventListener('submit', (event) => {
+      event.preventDefault()
+      const name = document.getElementById('reviewName').value
+      const rating = document.getElementById('reviewRating').value
+      const feedback = document.getElementById('reviewFeedback').value
+      const data = {
+          name,
+          rating,
+          feedback,
+      };
+      submitReview(data)
+    })
+}
+
+
 function submitReview(data) {
   const ReviewFormContainer = document.querySelector(".review-container");
-  const doctorShow = document.querySelector('#doctor-show');
+  const doctorShow = document.querySelector('#doctor-show'); 
+  const GrabForm = document.getElementById("add-review-form");
+  GrabForm.reset();
   doctorShow.style.display = "none";
   ///////
   fetch("http://localhost:3000/doctors", {
@@ -152,6 +158,20 @@ function submitReview(data) {
   });
   ReviewFormContainer.style.display = "none";
 }
+
+function delDoctor(e) {
+  const { id } = e.target.dataset;
+  console.log(`Doctor ${id} was deleted.`);
+  // debugger;
+  fetch(`http://localhost:3000/doctors/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      e.target.parentElement.remove();
+    });
+}
+
 
 init();
 

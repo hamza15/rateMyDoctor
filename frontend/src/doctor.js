@@ -32,7 +32,13 @@ class Doctor {
         newB.id = "showButton";
         newB.innerText = ` Show `;
 
-        divCard.append(newH2, newImg, newH3, newH4, newB);
+        let delB = document.createElement("button");
+        delB.setAttribute('data-id', this.id);
+        delB.className = "del-btn"
+        delB.id = "delButton";
+        delB.innerText = `X`;
+
+        divCard.append(newH2, newImg, newH3, newH4, newB, delB);
 
         doctorShowPage.append(divCard);
     }

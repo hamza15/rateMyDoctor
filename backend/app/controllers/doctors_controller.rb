@@ -24,5 +24,13 @@ class DoctorsController < ApplicationController
         end
     end
 
+    def destroy
+        doctor = Doctor.find(params[:id])
+    
+        if doctor.destroy
+            render json: { id: doctor.id }
+        end
+    end
+
 
 end
