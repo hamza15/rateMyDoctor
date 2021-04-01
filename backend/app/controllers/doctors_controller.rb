@@ -13,7 +13,7 @@ class DoctorsController < ApplicationController
     def create
         # binding.pry
         doc = Doctor.find_by(location: params[:location])
-        if doc
+        if !doc
             doctor = Doctor.create(name: params[:name], image_url: params[:image], location: params[:location], speciality: params[:speciality])
             review = Review.create(rating: params[:rating].to_i, feedback: params[:feedback], doctor: doctor)
             render json: doctor

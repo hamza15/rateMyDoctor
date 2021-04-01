@@ -76,6 +76,11 @@ class Doctor {
         divCard2.className = "card2";
         // console.log(this.doctor_reviews)
 
+        let orderBtn = document.createElement("button");
+        orderBtn.className = "orderClass"
+        orderBtn.innerHTML = "Order"
+
+
         this.doctor_reviews.forEach((review) => {
 
             // console.log(review.feedback)
@@ -97,7 +102,7 @@ class Doctor {
         reviewB.id = "reviewButton";
         reviewB.innerText = ` Create Review `;
 
-        divCard2.append(reviewB);
+        divCard2.append(reviewB, orderBtn);
 
         doctorShow.append(divCard2);
         

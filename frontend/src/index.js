@@ -11,6 +11,7 @@ function init() {
 
 function getDoctors() {
     fetch('http://localhost:3000/doctors')
+    // .then(console.log("1"))
     .then((res) => res.json())
     .then((data) => {
         data.forEach((reviewObject) => {
@@ -20,9 +21,15 @@ function getDoctors() {
         document
             .querySelectorAll(".show-btn")
             .forEach((btn) => btn.addEventListener("click", showDoctor));
-            document
+        document
             .querySelectorAll(".del-btn")
             .forEach((btn) => btn.addEventListener("click", delDoctor));
+        ///////////////
+        // const searchName = document.querySelector("#add-search-form");
+        // searchName.addEventListener('submit', (event) => {
+        //   event.preventDefault();
+        //   console.log("SEARCHED")
+        // })
     });
 }
 
@@ -35,11 +42,44 @@ function showDoctor(e) {
         .then((doctor) => {
           const showDoctor = new Doctor(doctor);
           showDoctor.renderDoctorDetail();
-          // debugger;
           document
             .querySelector(".review-btn")
             .addEventListener("click", createReview);
+          document
+            .querySelector('.orderClass')
+            .addEventListener("click", orderReviews.bind(showDoctor))
         });
+}
+
+function orderReviews() {
+  let divCard2 = document.getElementById("cardId2");
+  document.getElementById("cardId2").innerHTML = "";
+  
+  this.doctor_reviews.sort(function (a, b) {
+    return a.rating - b.rating
+  })
+
+  this.doctor_reviews.forEach((review) => {
+
+    // console.log(review.feedback)
+   
+    let newP1 = document.createElement("p");
+    newP1.className = "para";
+    newP1.innerText = `Rating: ${review.rating}/5`;
+
+    let newP2 = document.createElement("p");
+    newP2.innerText = `Review: ${review.feedback}`;
+
+    divCard2.append(newP1, newP2);
+
+    // doctorShowPage.append(divCard2);
+})
+  //////
+
+
+
+  //find ratings for each review
+  //render them in order
 }
 
 
